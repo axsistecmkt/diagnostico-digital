@@ -949,18 +949,16 @@ function submitContact(){
 }
 function sendToSheets(score, resultado){
   if(!SHEETS_URL||SHEETS_URL==='https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec') return;
-  fetch(SHEETS_URL,{
-    method:'POST', mode:'no-cors',
-    body: JSON.stringify({
-      fecha:      new Date().toLocaleString('es-MX',{timeZone:'America/Monterrey'}),
-      empresa:    contact.empresa,
-      nombre:     contact.nombre,
-      correo:     contact.correo,
-      telefono:   contact.telefono,
-      resultado:  resultado,
-      puntuacion: score
-    })
-  }).catch(()=>{});
+  const p = new URLSearchParams({
+    fecha:      new Date().toLocaleString('es-MX',{timeZone:'America/Monterrey'}),
+    empresa:    contact.empresa,
+    nombre:     contact.nombre,
+    correo:     contact.correo,
+    telefono:   contact.telefono,
+    resultado:  resultado,
+    puntuacion: score
+  });
+  new Image().src = SHEETS_URL + '?' + p.toString();
 }
 function restartDiagnosis(){
   cur=0; answers=[];
