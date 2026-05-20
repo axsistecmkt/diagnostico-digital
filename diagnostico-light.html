@@ -921,7 +921,7 @@ function showResult(){
   sendToSheets(total, r.title.replace(/<[^>]*>/g,''));
 }
 let contact = { empresa:'', nombre:'', correo:'', telefono:'' };
-const SHEETS_URL = 'AQUI_TU_URL_DE_APPS_SCRIPT';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec';
 
 function backToIntro(){
   document.getElementById('logo-header').classList.remove('show');
@@ -948,7 +948,7 @@ function submitContact(){
   renderQ(); showScreen('s-question');
 }
 function sendToSheets(score, resultado){
-  if(!SHEETS_URL||SHEETS_URL==='AQUI_TU_URL_DE_APPS_SCRIPT') return;
+  if(!SHEETS_URL||SHEETS_URL==='https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec') return;
   fetch(SHEETS_URL,{
     method:'POST', mode:'no-cors',
     body: JSON.stringify({
@@ -1235,7 +1235,7 @@ function showResult(){
   setTimeout(()=>showScreen('s-result'),180);
 }
 let contact = { empresa:'', nombre:'', correo:'', telefono:'' };
-const SHEETS_URL = 'AQUI_TU_URL_DE_APPS_SCRIPT';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec';
 
 function backToIntro(){
   document.getElementById('logo-header').classList.remove('show');
@@ -1262,7 +1262,7 @@ function submitContact(){
   renderQ(); showScreen('s-question');
 }
 function sendToSheets(score, resultado){
-  if(!SHEETS_URL||SHEETS_URL==='AQUI_TU_URL_DE_APPS_SCRIPT') return;
+  if(!SHEETS_URL||SHEETS_URL==='https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec') return;
   fetch(SHEETS_URL,{
     method:'POST', mode:'no-cors',
     body: JSON.stringify({
