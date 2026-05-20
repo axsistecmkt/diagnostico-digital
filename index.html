@@ -268,11 +268,42 @@ html, body {
 }
 
 
+
+/* ══════════════════════════════
+   CONTACT SCREEN
+══════════════════════════════ */
+#s-contact { padding: 1.5rem; }
+.contact-inner { width: 100%; max-width: 480px; }
+.contact-heading {
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem); font-weight: 800;
+  line-height: 1.25; margin-bottom: .6rem; letter-spacing: -.01em; color: var(--w100);
+}
+.contact-heading em { font-style: normal; color: var(--blue); }
+.contact-sub { color: var(--w60); font-size: clamp(.8rem,1.5vw,.92rem); line-height: 1.7; margin-bottom: 1.4rem; }
+.form-group  { display: flex; flex-direction: column; gap: .35rem; margin-bottom: .85rem; }
+.form-label  { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+.form-input  {
+  padding: .85rem 1.1rem; background: var(--w12); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px; color: var(--w100); font-family: 'Inter', sans-serif;
+  font-size: .9rem; outline: none; width: 100%; transition: border-color .2s, background .2s;
+}
+.form-input:focus { border-color: var(--blue); background: rgba(0,159,227,.09); }
+.form-input::placeholder { color: var(--w30); }
+.form-error { font-size: .78rem; color: #ff6b6b; margin-top: .2rem; display: none; }
+.form-error.show { display: block; }
+.contact-nav { display: flex; align-items: center; gap: .9rem; margin-top: .85rem; }
+.btn-contact  { flex: 1; justify-content: center; }
+
 /* ══════════════════════════════
    MOBILE RESPONSIVE
 ══════════════════════════════ */
 @media (max-width: 640px) {
   html, body, #app { height: 100dvh; }
+
+  /* Pantalla de contacto en movil */
+  #s-contact { justify-content: flex-start !important; padding-top: 4.5rem; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .contact-inner { max-width: 100%; padding-bottom: 2rem; }
+  .contact-heading { font-size: 1.25rem; }
 
   /* INTRO MÓVIL: logo entra al flujo flex → se centra con el contenido */
   #s-intro .logo-block {
@@ -594,11 +625,42 @@ html, body {
 }
 
 
+
+/* ══════════════════════════════
+   CONTACT SCREEN
+══════════════════════════════ */
+#s-contact { padding: 1.5rem; }
+.contact-inner { width: 100%; max-width: 480px; }
+.contact-heading {
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem); font-weight: 800;
+  line-height: 1.25; margin-bottom: .6rem; letter-spacing: -.01em; color: var(--w100);
+}
+.contact-heading em { font-style: normal; color: var(--blue); }
+.contact-sub { color: var(--w60); font-size: clamp(.8rem,1.5vw,.92rem); line-height: 1.7; margin-bottom: 1.4rem; }
+.form-group  { display: flex; flex-direction: column; gap: .35rem; margin-bottom: .85rem; }
+.form-label  { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+.form-input  {
+  padding: .85rem 1.1rem; background: var(--w12); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px; color: var(--w100); font-family: 'Inter', sans-serif;
+  font-size: .9rem; outline: none; width: 100%; transition: border-color .2s, background .2s;
+}
+.form-input:focus { border-color: var(--blue); background: rgba(0,159,227,.09); }
+.form-input::placeholder { color: var(--w30); }
+.form-error { font-size: .78rem; color: #ff6b6b; margin-top: .2rem; display: none; }
+.form-error.show { display: block; }
+.contact-nav { display: flex; align-items: center; gap: .9rem; margin-top: .85rem; }
+.btn-contact  { flex: 1; justify-content: center; }
+
 /* ══════════════════════════════
    MOBILE RESPONSIVE
 ══════════════════════════════ */
 @media (max-width: 640px) {
   html, body, #app { height: 100dvh; }
+
+  /* Pantalla de contacto en movil */
+  #s-contact { justify-content: flex-start !important; padding-top: 4.5rem; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .contact-inner { max-width: 100%; padding-bottom: 2rem; }
+  .contact-heading { font-size: 1.25rem; }
 
   /* INTRO MÓVIL: logo entra al flujo flex → se centra con el contenido */
   #s-intro .logo-block {
@@ -703,6 +765,42 @@ html, body {
     </button>
   </div>
 
+
+  <!-- ══ CONTACT ══ -->
+  <div class="screen" id="s-contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Antes de comenzar</p>
+      <h2 class="contact-heading">Cuéntanos sobre <em>ti</em> y tu empresa</h2>
+      <p class="contact-sub">Tus datos nos permiten enviarte un análisis personalizado de tu diagnóstico.</p>
+      <div class="form-group">
+        <label class="form-label" for="f-empresa">Empresa o negocio</label>
+        <input class="form-input" id="f-empresa" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-nombre">Tu nombre</label>
+        <input class="form-input" id="f-nombre" type="text" placeholder="¿Cómo te llamas?" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-correo">Correo electrónico</label>
+        <input class="form-input" id="f-correo" type="email" placeholder="correo@empresa.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-telefono">Teléfono</label>
+        <input class="form-input" id="f-telefono" type="tel" placeholder="+52 81 0000 0000" autocomplete="tel">
+      </div>
+      <p class="form-error" id="form-err"></p>
+      <div class="contact-nav">
+        <button class="btn-ghost" onclick="backToIntro()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Regresar
+        </button>
+        <button class="btn-primary btn-contact" onclick="submitContact()">
+          Continuar
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- ══ QUESTION ══ -->
   <div class="screen" id="s-question">
     <div class="q-category" id="q-cat"></div>
@@ -803,6 +901,8 @@ const outcomes = [
 ═══════════════════════════════════ */
 let cur = 0;
 let answers = [];
+let contact = { empresa:'', nombre:'', correo:'', telefono:'' };
+const SHEETS_URL = 'AQUI_TU_URL_DE_APPS_SCRIPT';
 
 /* ═══════════════════════════════════
    FLUID BACKGROUND
@@ -893,9 +993,33 @@ function setProgress(pct) {
    QUIZ FLOW
 ═══════════════════════════════════ */
 function startDiagnosis() {
+  document.getElementById('logo-header').classList.add('show');
+  showScreen('s-contact');
+}
+
+function backToIntro() {
+  document.getElementById('logo-header').classList.remove('show');
+  showScreen('s-intro');
+}
+
+function submitContact() {
+  const empresa  = document.getElementById('f-empresa').value.trim();
+  const nombre   = document.getElementById('f-nombre').value.trim();
+  const correo   = document.getElementById('f-correo').value.trim();
+  const telefono = document.getElementById('f-telefono').value.trim();
+  const errEl    = document.getElementById('form-err');
+  if (!empresa || !nombre || !correo || !telefono) {
+    errEl.textContent = 'Por favor completa todos los campos.';
+    errEl.classList.add('show'); return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+    errEl.textContent = 'Ingresa un correo electrónico válido.';
+    errEl.classList.add('show'); return;
+  }
+  errEl.classList.remove('show');
+  contact = { empresa, nombre, correo, telefono };
   cur = 0; answers = [];
   document.getElementById('progress-wrap').classList.add('show');
-  document.getElementById('logo-header').classList.add('show');
   renderQ();
   showScreen('s-question');
 }
@@ -942,8 +1066,7 @@ function goBack() {
   if (cur > 0) { cur--; renderQ(); }
   else {
     document.getElementById('progress-wrap').classList.remove('show');
-    document.getElementById('logo-header').classList.remove('show');
-    showScreen('s-intro');
+    showScreen('s-contact');
   }
 }
 
@@ -954,6 +1077,24 @@ function showResult() {
   document.getElementById('r-desc').textContent = r.desc;
   setProgress(100);
   setTimeout(() => showScreen('s-result'), 180);
+  sendToSheets(total, r.title.replace(/<[^>]*>/g, ''));
+}
+
+function sendToSheets(score, resultado) {
+  if (!SHEETS_URL || SHEETS_URL === 'AQUI_TU_URL_DE_APPS_SCRIPT') return;
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode:   'no-cors',
+    body:   JSON.stringify({
+      fecha:      new Date().toLocaleString('es-MX', { timeZone: 'America/Monterrey' }),
+      empresa:    contact.empresa,
+      nombre:     contact.nombre,
+      correo:     contact.correo,
+      telefono:   contact.telefono,
+      resultado:  resultado,
+      puntuacion: score
+    })
+  }).catch(() => {});
 }
 
 function restartDiagnosis() {
@@ -1043,6 +1184,42 @@ function contactAxsis() {
     </button>
   </div>
 
+
+  <!-- ══ CONTACT ══ -->
+  <div class="screen" id="s-contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Antes de comenzar</p>
+      <h2 class="contact-heading">Cuéntanos sobre <em>ti</em> y tu empresa</h2>
+      <p class="contact-sub">Tus datos nos permiten enviarte un análisis personalizado de tu diagnóstico.</p>
+      <div class="form-group">
+        <label class="form-label" for="f-empresa">Empresa o negocio</label>
+        <input class="form-input" id="f-empresa" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-nombre">Tu nombre</label>
+        <input class="form-input" id="f-nombre" type="text" placeholder="¿Cómo te llamas?" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-correo">Correo electrónico</label>
+        <input class="form-input" id="f-correo" type="email" placeholder="correo@empresa.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-telefono">Teléfono</label>
+        <input class="form-input" id="f-telefono" type="tel" placeholder="+52 81 0000 0000" autocomplete="tel">
+      </div>
+      <p class="form-error" id="form-err"></p>
+      <div class="contact-nav">
+        <button class="btn-ghost" onclick="backToIntro()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Regresar
+        </button>
+        <button class="btn-primary btn-contact" onclick="submitContact()">
+          Continuar
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- ══ QUESTION ══ -->
   <div class="screen" id="s-question">
     <div class="q-category" id="q-cat"></div>
@@ -1143,6 +1320,8 @@ const outcomes = [
 ═══════════════════════════════════ */
 let cur = 0;
 let answers = [];
+let contact = { empresa:'', nombre:'', correo:'', telefono:'' };
+const SHEETS_URL = 'AQUI_TU_URL_DE_APPS_SCRIPT';
 
 /* ═══════════════════════════════════
    FLUID BACKGROUND
@@ -1233,9 +1412,33 @@ function setProgress(pct) {
    QUIZ FLOW
 ═══════════════════════════════════ */
 function startDiagnosis() {
+  document.getElementById('logo-header').classList.add('show');
+  showScreen('s-contact');
+}
+
+function backToIntro() {
+  document.getElementById('logo-header').classList.remove('show');
+  showScreen('s-intro');
+}
+
+function submitContact() {
+  const empresa  = document.getElementById('f-empresa').value.trim();
+  const nombre   = document.getElementById('f-nombre').value.trim();
+  const correo   = document.getElementById('f-correo').value.trim();
+  const telefono = document.getElementById('f-telefono').value.trim();
+  const errEl    = document.getElementById('form-err');
+  if (!empresa || !nombre || !correo || !telefono) {
+    errEl.textContent = 'Por favor completa todos los campos.';
+    errEl.classList.add('show'); return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+    errEl.textContent = 'Ingresa un correo electrónico válido.';
+    errEl.classList.add('show'); return;
+  }
+  errEl.classList.remove('show');
+  contact = { empresa, nombre, correo, telefono };
   cur = 0; answers = [];
   document.getElementById('progress-wrap').classList.add('show');
-  document.getElementById('logo-header').classList.add('show');
   renderQ();
   showScreen('s-question');
 }
@@ -1282,8 +1485,7 @@ function goBack() {
   if (cur > 0) { cur--; renderQ(); }
   else {
     document.getElementById('progress-wrap').classList.remove('show');
-    document.getElementById('logo-header').classList.remove('show');
-    showScreen('s-intro');
+    showScreen('s-contact');
   }
 }
 
@@ -1294,6 +1496,24 @@ function showResult() {
   document.getElementById('r-desc').textContent = r.desc;
   setProgress(100);
   setTimeout(() => showScreen('s-result'), 180);
+  sendToSheets(total, r.title.replace(/<[^>]*>/g, ''));
+}
+
+function sendToSheets(score, resultado) {
+  if (!SHEETS_URL || SHEETS_URL === 'AQUI_TU_URL_DE_APPS_SCRIPT') return;
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode:   'no-cors',
+    body:   JSON.stringify({
+      fecha:      new Date().toLocaleString('es-MX', { timeZone: 'America/Monterrey' }),
+      empresa:    contact.empresa,
+      nombre:     contact.nombre,
+      correo:     contact.correo,
+      telefono:   contact.telefono,
+      resultado:  resultado,
+      puntuacion: score
+    })
+  }).catch(() => {});
 }
 
 function restartDiagnosis() {
