@@ -261,10 +261,18 @@ html, body {
 @media (max-width: 640px) {
   html, body, #app { height: 100dvh; }
 
-  .logo-block          { top: 1rem; }
-  .logo-img-intro      { height: 84px !important; }
+  /* INTRO MÓVIL: logo entra al flujo flex → se centra con el contenido */
+  #s-intro .logo-block {
+    position: static;
+    transform: none;
+    left: auto;
+    margin-bottom: 1.2rem;
+  }
+  .logo-img-intro      { height: 110px !important; }
   .logo-img-header     { height: 28px !important; }
 
+  /* Intro: sin padding-top extra (logo ya no es absoluto) */
+  #s-intro             { padding-top: 1rem; }
   #s-intro h1          { font-size: 1.3rem; }
   #s-intro .sub        { font-size: .83rem; line-height: 1.6; }
 
@@ -562,10 +570,18 @@ html, body {
 @media (max-width: 640px) {
   html, body, #app { height: 100dvh; }
 
-  .logo-block          { top: 1rem; }
-  .logo-img-intro      { height: 84px !important; }
+  /* INTRO MÓVIL: logo entra al flujo flex → se centra con el contenido */
+  #s-intro .logo-block {
+    position: static;
+    transform: none;
+    left: auto;
+    margin-bottom: 1.2rem;
+  }
+  .logo-img-intro      { height: 110px !important; }
   .logo-img-header     { height: 28px !important; }
 
+  /* Intro: sin padding-top extra (logo ya no es absoluto) */
+  #s-intro             { padding-top: 1rem; }
   #s-intro h1          { font-size: 1.3rem; }
   #s-intro .sub        { font-size: .83rem; line-height: 1.6; }
 
