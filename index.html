@@ -948,17 +948,37 @@ function submitContact(){
   renderQ(); showScreen('s-question');
 }
 function sendToSheets(score, resultado){
-  if(!SHEETS_URL||SHEETS_URL==='https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec') return;
-  const p = new URLSearchParams({
-    fecha:      new Date().toLocaleString('es-MX',{timeZone:'America/Monterrey'}),
-    empresa:    contact.empresa,
-    nombre:     contact.nombre,
-    correo:     contact.correo,
-    telefono:   contact.telefono,
-    resultado:  resultado,
-    puntuacion: score
-  });
-  new Image().src = SHEETS_URL + '?' + p.toString();
+  try {
+    const ifrName = 'gs_iframe_' + Date.now();
+    const ifr = document.createElement('iframe');
+    ifr.name = ifrName;
+    ifr.style.cssText = 'display:none;position:absolute;width:0;height:0;border:0';
+    document.body.appendChild(ifr);
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec';
+    form.target = ifrName;
+    form.style.display = 'none';
+
+    const data = {
+      fecha:      new Date().toLocaleString('es-MX',{timeZone:'America/Monterrey'}),
+      empresa:    contact.empresa,
+      nombre:     contact.nombre,
+      correo:     contact.correo,
+      telefono:   contact.telefono,
+      resultado:  resultado,
+      puntuacion: String(score)
+    };
+    for (const k in data) {
+      const inp = document.createElement('input');
+      inp.type = 'hidden'; inp.name = k; inp.value = data[k];
+      form.appendChild(inp);
+    }
+    document.body.appendChild(form);
+    form.submit();
+    setTimeout(()=>{ document.body.removeChild(form); document.body.removeChild(ifr); }, 4000);
+  } catch(e){}
 }
 function restartDiagnosis(){
   cur=0; answers=[];
