@@ -710,8 +710,12 @@ html, body {
 
 <div id="app">
   <div id="lang-switcher">
-    <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')" title="Español">&#127474;&#127485;</button>
-    <button class="lang-btn" id="btn-lang-en" onclick="setLang('en')" title="English">&#127482;&#127480;</button>
+    <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')" title="Español">
+      <img src="https://flagcdn.com/w40/mx.png" alt="MX" class="flag-img">
+    </button>
+    <button class="lang-btn" id="btn-lang-en" onclick="setLang('en')" title="English">
+      <img src="https://flagcdn.com/w40/us.png" alt="US" class="flag-img">
+    </button>
   </div>
 
 
@@ -1062,11 +1066,15 @@ const outcomesEN = [
 ];
 
 function setLang(l) {
+  // Update buttons first (always safe)
+  var _es = document.getElementById('btn-lang-es');
+  var _en = document.getElementById('btn-lang-en');
+  if (_es) _es.className = (l === 'es') ? 'lang-btn active' : 'lang-btn';
+  if (_en) _en.className = (l === 'en') ? 'lang-btn active' : 'lang-btn';
   lang = l;
   questions = (l === 'es') ? questionsES : questionsEN;
   outcomes  = (l === 'es') ? outcomesES  : outcomesEN;
-  document.getElementById('btn-lang-es').className = 'lang-btn' + (l === 'es' ? ' active' : '');
-  document.getElementById('btn-lang-en').className = 'lang-btn' + (l === 'en' ? ' active' : '');
+
   const t = texts[l];
   document.getElementById('intro-badge-text').textContent  = t.badge;
   document.getElementById('intro-eyebrow').textContent     = t.introEyebrow;
@@ -1607,30 +1615,38 @@ function contactAxsis(){ window.open('https://app.shutpoint.com/es-MX/agenda/Ven
 
 /* â•â• LANGUAGE SWITCHER â•â• */
 #lang-switcher {
-  position: fixed; top: .85rem; right: 1.1rem; z-index: 300;
-  display: flex; gap: 0;
-  background: rgba(0,0,0,.14);
-  border-radius: 3rem;
+  position: fixed; top: .8rem; right: 1rem; z-index: 300;
+  display: flex; gap: 2px;
+  background: rgba(0,0,0,.18);
+  border-radius: 2rem;
   padding: 3px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.14);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  backdrop-filter: blur(10px);
 }
 .lang-btn {
-  background: transparent; border: none; border-radius: 2.5rem;
-  width: 2.6rem; height: 2.6rem; font-size: 1.4rem; line-height: 1;
-  cursor: pointer; opacity: .38;
-  transition: opacity .18s ease, background .18s ease, box-shadow .18s ease;
-  display: flex; align-items: center; justify-content: center; padding: 0;
+  background: transparent; border: none; border-radius: 1.6rem;
+  padding: .25rem .4rem;
+  cursor: pointer; opacity: .35;
+  transition: opacity .2s ease, background .2s ease, box-shadow .2s ease;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 0;
 }
 .lang-btn.active {
   opacity: 1;
-  background: #fff;
-  box-shadow: 0 1px 7px rgba(0,0,0,.22);
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
-.lang-btn:hover:not(.active) { opacity: .68; }
+.lang-btn:hover:not(.active) { opacity: .65; }
+.flag-img {
+  width: 28px; height: 21px;
+  border-radius: 3px;
+  display: block;
+  pointer-events: none;
+}
 @media (max-width: 640px) {
-  #lang-switcher { top: .6rem; right: .75rem; }
-  .lang-btn { width: 2.35rem; height: 2.35rem; font-size: 1.25rem; }
-}</style>
+  #lang-switcher { top: .55rem; right: .7rem; }
+  .flag-img { width: 24px; height: 18px; }
+}
+</style>
 </body>
 </html>
