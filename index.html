@@ -1234,19 +1234,7 @@ function submitContact(){
 }
 function sendToSheets(score, resultado){
   try {
-    const ifrName = 'gs_iframe_' + Date.now();
-    const ifr = document.createElement('iframe');
-    ifr.name = ifrName;
-    ifr.style.cssText = 'display:none;position:absolute;width:0;height:0;border:0';
-    document.body.appendChild(ifr);
-
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec';
-    form.target = ifrName;
-    form.style.display = 'none';
-
-    const data = {
+    const p = new URLSearchParams({
       fecha:      new Date().toLocaleString('es-MX',{timeZone:'America/Monterrey'}),
       empresa:    contact.empresa,
       nombre:     contact.nombre,
@@ -1254,15 +1242,8 @@ function sendToSheets(score, resultado){
       telefono:   contact.telefono,
       resultado:  resultado,
       puntuacion: String(score)
-    };
-    for (const k in data) {
-      const inp = document.createElement('input');
-      inp.type = 'hidden'; inp.name = k; inp.value = data[k];
-      form.appendChild(inp);
-    }
-    document.body.appendChild(form);
-    form.submit();
-    setTimeout(()=>{ document.body.removeChild(form); document.body.removeChild(ifr); }, 4000);
+    });
+    new Image().src = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec' + '?' + p.toString();
   } catch(e){}
 }
 function restartDiagnosis(){
@@ -1622,23 +1603,29 @@ function contactAxsis(){ window.open('https://app.shutpoint.com/es-MX/agenda/Ven
 /* â•â• LANGUAGE SWITCHER â•â• */
 #lang-switcher {
   position: fixed; top: .85rem; right: 1.2rem; z-index: 300;
-  display: flex; gap: .25rem;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(10px);
+  display: flex; gap: 0;
+  background: rgba(13,27,75,.09);
   border-radius: 2rem;
-  padding: .2rem .4rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,.1);
+  padding: .18rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
 .lang-btn {
-  background: none; border: 2px solid transparent; border-radius: 50%;
-  width: 2rem; height: 2rem; font-size: 1.05rem;
-  cursor: pointer; opacity: .4;
-  transition: opacity .2s, border-color .2s;
+  background: none; border: none; border-radius: 1.8rem;
+  width: 2.3rem; height: 2.3rem; font-size: 1.05rem;
+  cursor: pointer; opacity: .35;
+  transition: all .25s ease;
   display: flex; align-items: center; justify-content: center; padding: 0;
 }
-.lang-btn.active { opacity: 1; border-color: var(--blue); }
-.lang-btn:hover  { opacity: .8; }
+.lang-btn.active {
+  opacity: 1;
+  background: white;
+  box-shadow: 0 1px 6px rgba(0,0,0,.18);
+}
+.lang-btn:hover:not(.active) { opacity: .65; }
 @media (max-width: 640px) {
+  #lang-switcher { top: .55rem; right: .75rem; }
+  .lang-btn { width: 2.1rem; height: 2.1rem; font-size: .95rem; }
+}@media (max-width: 640px) {
   #lang-switcher { top: .6rem; right: .8rem; }
   .lang-btn { width: 1.85rem; height: 1.85rem; font-size: .95rem; }
 }
