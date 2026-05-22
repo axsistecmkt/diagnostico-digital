@@ -710,7 +710,7 @@ html, body {
 
 <div id="app">
   <div id="lang-switcher">
-    <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')" title="EspaÃ±ol">&#127474;&#127485;</button>
+    <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')" title="Español">&#127474;&#127485;</button>
     <button class="lang-btn" id="btn-lang-en" onclick="setLang('en')" title="English">&#127482;&#127480;</button>
   </div>
 
@@ -724,9 +724,9 @@ html, body {
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       2 minutos · 10 preguntas
     </div>
-    <p class="eyebrow">Transformación Digital</p>
-    <h1 id="intro-h1">¿QuÃ© tan preparada estÃ¡ tu empresa para <em>transformar</em> su operaciÃ³n digital?</h1>
-    <p class="sub" id="intro-sub">Responde 10 preguntas estratÃ©gicas y descubre en quÃ© etapa de madurez digital se encuentra tu organizaciÃ³n. En menos de 5 minutos identifica si necesitas ordenar procesos, integrar sistemas, automatizar tareas o avanzar hacia inteligencia artificial.</p>
+    <p class="eyebrow" id="intro-eyebrow">Transformación Digital</p>
+    <h1 id="intro-h1">¿Qué tan preparada está tu empresa para <em>transformar</em> su operación digital?</h1>
+    <p class="sub" id="intro-sub">Responde 10 preguntas estratégicas y descubre en qué etapa de madurez digital se encuentra tu organización. En menos de 5 minutos identifica si necesitas ordenar procesos, integrar sistemas, automatizar tareas o avanzar hacia inteligencia artificial.</p>
     <button class="btn-primary" id="btn-start" onclick="startDiagnosis()">
       <span class="btn-text">Comenzar diagnóstico</span>
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -738,8 +738,8 @@ html, body {
   <div class="screen" id="s-contact">
     <div class="contact-inner">
       <p class="eyebrow" id="contact-eyebrow">Antes de comenzar</p>
-      <h2 class="contact-heading" id="contact-h2">CuÃ©ntanos sobre <em>ti</em> y tu empresa</h2>
-      <p class="contact-sub" id="contact-sub">En menos de 5 minutos sabrÃ¡s en quÃ© etapa de madurez digital se encuentra tu empresa.</p>
+      <h2 class="contact-heading" id="contact-h2">Cuéntanos sobre <em>ti</em> y tu empresa</h2>
+      <p class="contact-sub" id="contact-sub">En menos de 5 minutos sabrás en qué etapa de madurez digital se encuentra tu empresa.</p>
       <div class="form-group">
         <label class="form-label" id="label-empresa" for="f-empresa">Empresa o negocio</label>
         <input class="form-input" id="f-empresa" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
@@ -749,11 +749,11 @@ html, body {
         <input class="form-input" id="f-nombre" type="text" placeholder="Nombre completo" autocomplete="name">
       </div>
       <div class="form-group">
-        <label class="form-label" id="label-correo" for="f-correo">Correo electrÃ³nico</label>
+        <label class="form-label" id="label-correo" for="f-correo">Correo electrónico</label>
         <input class="form-input" id="f-correo" type="email" placeholder="correo@empresa.com" autocomplete="email">
       </div>
       <div class="form-group">
-        <label class="form-label" id="label-telefono" for="f-telefono">TelÃ©fono</label>
+        <label class="form-label" id="label-telefono" for="f-telefono">Teléfono</label>
         <input class="form-input" id="f-telefono" type="tel" placeholder="81 1234 5678" autocomplete="tel">
       </div>
       <p class="form-error" id="form-err"></p>
@@ -785,7 +785,7 @@ html, body {
     <div class="result-tag" id="result-tag">Tu diagnóstico</div>
     <div class="result-title" id="r-title"></div>
     <p class="result-desc" id="r-desc"></p>
-    <p class="result-cta">¿Quieres saber cómo AXSIS puede llevarte al siguiente nivel?</p>
+    <p class="result-cta" id="result-cta">¿Quieres saber cómo AXSIS puede llevarte al siguiente nivel?</p>
     <div class="result-btns">
       <button class="btn-primary" id="btn-expert" onclick="contactAxsis()">
         <span class="btn-text">Hablar con un experto</span>
@@ -800,91 +800,91 @@ html, body {
 <script>
 /* ═══════════════════ DATA ═══════════════════ */
 const questionsES = [
-  { cat:"Procesos operativos Â· 1/10",
-    text:"Â¿CÃ³mo gestiona actualmente tu empresa sus procesos operativos clave?",
+  { cat:"Procesos operativos · 1/10",
+    text:"¿Cómo gestiona actualmente tu empresa sus procesos operativos clave?",
     opts:[
       {l:"A",t:"Principalmente con Excel, correos, llamadas o seguimiento manual.",v:1},
       {l:"B",t:"Usamos algunas herramientas digitales, pero varios procesos siguen siendo manuales.",v:2},
-      {l:"C",t:"Tenemos sistemas implementados, aunque todavÃ­a existen tareas duplicadas o poco conectadas.",v:3},
+      {l:"C",t:"Tenemos sistemas implementados, aunque todavía existen tareas duplicadas o poco conectadas.",v:3},
       {l:"D",t:"Contamos con procesos digitales, integrados, medibles y estandarizados.",v:4}
     ]
   },
-  { cat:"IntegraciÃ³n de sistemas Â· 2/10",
-    text:"Â¿QuÃ© tan conectada estÃ¡ la informaciÃ³n entre Ã¡reas como ventas, operaciones, administraciÃ³n, finanzas y direcciÃ³n?",
+  { cat:"Integración de sistemas · 2/10",
+    text:"¿Qué tan conectada está la información entre áreas como ventas, operaciones, administración, finanzas y dirección?",
     opts:[
-      {l:"A",t:"Cada Ã¡rea maneja su propia informaciÃ³n de forma separada.",v:1},
-      {l:"B",t:"Compartimos informaciÃ³n manualmente cuando se necesita.",v:2},
-      {l:"C",t:"Algunos sistemas estÃ¡n conectados, pero aÃºn hay duplicidad o falta de visibilidad.",v:3},
-      {l:"D",t:"La informaciÃ³n fluye entre Ã¡reas de forma integrada y en tiempo real.",v:4}
+      {l:"A",t:"Cada área maneja su propia información de forma separada.",v:1},
+      {l:"B",t:"Compartimos información manualmente cuando se necesita.",v:2},
+      {l:"C",t:"Algunos sistemas están conectados, pero aún hay duplicidad o falta de visibilidad.",v:3},
+      {l:"D",t:"La información fluye entre áreas de forma integrada y en tiempo real.",v:4}
     ]
   },
-  { cat:"Visibilidad ejecutiva Â· 3/10",
-    text:"Â¿QuÃ© tan fÃ¡cil es para la direcciÃ³n consultar indicadores clave del negocio?",
+  { cat:"Visibilidad ejecutiva · 3/10",
+    text:"¿Qué tan fácil es para la dirección consultar indicadores clave del negocio?",
     opts:[
-      {l:"A",t:"Es difÃ­cil; dependemos de reportes manuales o informaciÃ³n dispersa.",v:1},
-      {l:"B",t:"Tenemos reportes bÃ¡sicos, pero se actualizan manualmente.",v:2},
-      {l:"C",t:"Revisamos KPIs de forma periÃ³dica, aunque no siempre en tiempo real.",v:3},
-      {l:"D",t:"Contamos con dashboards actualizados para tomar decisiones rÃ¡pidamente.",v:4}
+      {l:"A",t:"Es difícil; dependemos de reportes manuales o información dispersa.",v:1},
+      {l:"B",t:"Tenemos reportes básicos, pero se actualizan manualmente.",v:2},
+      {l:"C",t:"Revisamos KPIs de forma periódica, aunque no siempre en tiempo real.",v:3},
+      {l:"D",t:"Contamos con dashboards actualizados para tomar decisiones rápidamente.",v:4}
     ]
   },
-  { cat:"AutomatizaciÃ³n Â· 4/10",
-    text:"Â¿QuÃ© tan automatizadas estÃ¡n las tareas repetitivas dentro de tu empresa?",
+  { cat:"Automatización · 4/10",
+    text:"¿Qué tan automatizadas están las tareas repetitivas dentro de tu empresa?",
     opts:[
-      {l:"A",t:"La mayorÃ­a se realizan manualmente.",v:1},
-      {l:"B",t:"Algunas tareas estÃ¡n automatizadas, pero de forma limitada.",v:2},
-      {l:"C",t:"Tenemos automatizaciones en Ã¡reas especÃ­ficas.",v:3},
-      {l:"D",t:"Gran parte de los procesos repetitivos ya estÃ¡n automatizados.",v:4}
+      {l:"A",t:"La mayoría se realizan manualmente.",v:1},
+      {l:"B",t:"Algunas tareas están automatizadas, pero de forma limitada.",v:2},
+      {l:"C",t:"Tenemos automatizaciones en áreas específicas.",v:3},
+      {l:"D",t:"Gran parte de los procesos repetitivos ya están automatizados.",v:4}
     ]
   },
-  { cat:"GestiÃ³n de clientes Â· 5/10",
-    text:"Â¿CÃ³mo gestionan actualmente la relaciÃ³n con clientes, prospectos o usuarios?",
+  { cat:"Gestión de clientes · 5/10",
+    text:"¿Cómo gestionan actualmente la relación con clientes, prospectos o usuarios?",
     opts:[
       {l:"A",t:"Principalmente por WhatsApp, correo, llamadas o registros manuales.",v:1},
-      {l:"B",t:"Usamos herramientas digitales, pero el seguimiento no siempre estÃ¡ centralizado.",v:2},
-      {l:"C",t:"Tenemos un CRM o sistema de seguimiento, aunque aÃºn falta integraciÃ³n o automatizaciÃ³n.",v:3},
+      {l:"B",t:"Usamos herramientas digitales, pero el seguimiento no siempre está centralizado.",v:2},
+      {l:"C",t:"Tenemos un CRM o sistema de seguimiento, aunque aún falta integración o automatización.",v:3},
       {l:"D",t:"Contamos con un proceso comercial digital, trazable, automatizado y medible.",v:4}
     ]
   },
-  { cat:"Escalabilidad Â· 6/10",
-    text:"Â¿QuÃ© tan preparada estÃ¡ tu empresa para escalar sin aumentar demasiado la carga operativa?",
+  { cat:"Escalabilidad · 6/10",
+    text:"¿Qué tan preparada está tu empresa para escalar sin aumentar demasiado la carga operativa?",
     opts:[
-      {l:"A",t:"Si crecemos, probablemente necesitarÃ­amos mÃ¡s personas para sostener la operaciÃ³n.",v:1},
-      {l:"B",t:"Podemos crecer parcialmente, pero varios procesos se volverÃ­an mÃ¡s complejos.",v:2},
-      {l:"C",t:"Tenemos cierta estructura para escalar, aunque necesitamos mÃ¡s automatizaciÃ³n.",v:3},
-      {l:"D",t:"Nuestra operaciÃ³n estÃ¡ diseÃ±ada para crecer con procesos digitales y tecnologÃ­a.",v:4}
+      {l:"A",t:"Si crecemos, probablemente necesitaríamos más personas para sostener la operación.",v:1},
+      {l:"B",t:"Podemos crecer parcialmente, pero varios procesos se volverían más complejos.",v:2},
+      {l:"C",t:"Tenemos cierta estructura para escalar, aunque necesitamos más automatización.",v:3},
+      {l:"D",t:"Nuestra operación está diseñada para crecer con procesos digitales y tecnología.",v:4}
     ]
   },
-  { cat:"Seguridad digital Â· 7/10",
-    text:"Â¿QuÃ© tan segura y controlada estÃ¡ la informaciÃ³n crÃ­tica de tu empresa?",
+  { cat:"Seguridad digital · 7/10",
+    text:"¿Qué tan segura y controlada está la información crítica de tu empresa?",
     opts:[
-      {l:"A",t:"No tenemos claridad total sobre accesos, respaldos o riesgos tecnolÃ³gicos.",v:1},
-      {l:"B",t:"Tenemos controles bÃ¡sicos, pero no una estrategia formal de seguridad o continuidad.",v:2},
-      {l:"C",t:"Contamos con polÃ­ticas y herramientas de seguridad, aunque pueden fortalecerse.",v:3},
-      {l:"D",t:"Tenemos controles, respaldos, accesos definidos y una estrategia de continuidad tecnolÃ³gica.",v:4}
+      {l:"A",t:"No tenemos claridad total sobre accesos, respaldos o riesgos tecnológicos.",v:1},
+      {l:"B",t:"Tenemos controles básicos, pero no una estrategia formal de seguridad o continuidad.",v:2},
+      {l:"C",t:"Contamos con políticas y herramientas de seguridad, aunque pueden fortalecerse.",v:3},
+      {l:"D",t:"Tenemos controles, respaldos, accesos definidos y una estrategia de continuidad tecnológica.",v:4}
     ]
   },
-  { cat:"AdopciÃ³n tecnolÃ³gica Â· 8/10",
-    text:"Â¿QuÃ© tan preparada estÃ¡ tu organizaciÃ³n para adoptar nuevas tecnologÃ­as?",
+  { cat:"Adopción tecnológica · 8/10",
+    text:"¿Qué tan preparada está tu organización para adoptar nuevas tecnologías?",
     opts:[
-      {l:"A",t:"La adopciÃ³n suele ser difÃ­cil y depende mucho de cada persona o Ã¡rea.",v:1},
-      {l:"B",t:"Hemos implementado herramientas, pero la adopciÃ³n no siempre es consistente.",v:2},
-      {l:"C",t:"Tenemos buena disposiciÃ³n, aunque falta capacitaciÃ³n o gestiÃ³n del cambio.",v:3},
-      {l:"D",t:"La empresa adopta tecnologÃ­a con procesos claros, capacitaciÃ³n y seguimiento.",v:4}
+      {l:"A",t:"La adopción suele ser difícil y depende mucho de cada persona o área.",v:1},
+      {l:"B",t:"Hemos implementado herramientas, pero la adopción no siempre es consistente.",v:2},
+      {l:"C",t:"Tenemos buena disposición, aunque falta capacitación o gestión del cambio.",v:3},
+      {l:"D",t:"La empresa adopta tecnología con procesos claros, capacitación y seguimiento.",v:4}
     ]
   },
-  { cat:"Uso de datos Â· 9/10",
-    text:"Â¿QuÃ© tan aprovechados estÃ¡n los datos que genera tu empresa?",
+  { cat:"Uso de datos · 9/10",
+    text:"¿Qué tan aprovechados están los datos que genera tu empresa?",
     opts:[
       {l:"A",t:"Los datos existen, pero no se analizan de forma estructurada.",v:1},
       {l:"B",t:"Se revisan algunos datos, pero principalmente en reportes manuales.",v:2},
-      {l:"C",t:"Usamos datos para tomar decisiones, aunque hay oportunidad de mejorar anÃ¡lisis e integraciÃ³n.",v:3},
+      {l:"C",t:"Usamos datos para tomar decisiones, aunque hay oportunidad de mejorar análisis e integración.",v:3},
       {l:"D",t:"Los datos son parte central de nuestra estrategia y se usan para anticipar, optimizar y decidir.",v:4}
     ]
   },
-  { cat:"Inteligencia Artificial Â· 10/10",
-    text:"Â¿QuÃ© tan cerca estÃ¡ tu empresa de incorporar inteligencia artificial o soluciones inteligentes?",
+  { cat:"Inteligencia Artificial · 10/10",
+    text:"¿Qué tan cerca está tu empresa de incorporar inteligencia artificial o soluciones inteligentes?",
     opts:[
-      {l:"A",t:"No sabemos por dÃ³nde empezar o aÃºn no lo vemos cercano.",v:1},
+      {l:"A",t:"No sabemos por dónde empezar o aún no lo vemos cercano.",v:1},
       {l:"B",t:"Nos interesa, pero primero necesitamos ordenar procesos y datos.",v:2},
       {l:"C",t:"Ya estamos explorando casos de uso concretos para automatizar o analizar mejor.",v:3},
       {l:"D",t:"Ya usamos o estamos listos para implementar IA en procesos clave del negocio.",v:4}
@@ -892,16 +892,16 @@ const questionsES = [
   }
 ];
 const outcomesES = [
-  { min:10, max:16, title:"OperaciÃ³n <em>Reactiva</em>",
-    desc:"Tu empresa opera en gran medida con procesos manuales, herramientas aisladas y seguimiento informal. El primer paso es ordenar los procesos crÃ­ticos, identificar tareas repetitivas y construir una ruta clara de digitalizaciÃ³n. AXSIS puede ayudarte a definir ese roadmap y desarrollar las herramientas con mayor impacto para tu operaciÃ³n." },
-  { min:17, max:23, title:"DigitalizaciÃ³n <em>Inicial</em>",
-    desc:"Ya utilizas herramientas digitales, pero probablemente trabajan de forma aislada sin integraciÃ³n clara entre Ã¡reas. Esto genera duplicidad de informaciÃ³n, reportes manuales y baja trazabilidad. El siguiente paso es conectar sistemas, estandarizar procesos y automatizar flujos clave. AXSIS puede ayudarte a construir esa ruta de integraciÃ³n." },
-  { min:24, max:30, title:"Empresa en <em>IntegraciÃ³n</em>",
-    desc:"Cuentas con una base digital sÃ³lida: sistemas, indicadores y procesos parcialmente estructurados. AÃºn hay oportunidades importantes en automatizaciÃ³n y visibilidad en tiempo real. AXSIS puede ayudarte a fortalecer la conexiÃ³n entre Ã¡reas, centralizar informaciÃ³n crÃ­tica y mejorar la toma de decisiones con datos confiables." },
+  { min:10, max:16, title:"Operación <em>Reactiva</em>",
+    desc:"Tu empresa opera en gran medida con procesos manuales, herramientas aisladas y seguimiento informal. El primer paso es ordenar los procesos críticos, identificar tareas repetitivas y construir una ruta clara de digitalización. AXSIS puede ayudarte a definir ese roadmap y desarrollar las herramientas con mayor impacto para tu operación." },
+  { min:17, max:23, title:"Digitalización <em>Inicial</em>",
+    desc:"Ya utilizas herramientas digitales, pero probablemente trabajan de forma aislada sin integración clara entre áreas. Esto genera duplicidad de información, reportes manuales y baja trazabilidad. El siguiente paso es conectar sistemas, estandarizar procesos y automatizar flujos clave. AXSIS puede ayudarte a construir esa ruta de integración." },
+  { min:24, max:30, title:"Empresa en <em>Integración</em>",
+    desc:"Cuentas con una base digital sólida: sistemas, indicadores y procesos parcialmente estructurados. Aún hay oportunidades importantes en automatización y visibilidad en tiempo real. AXSIS puede ayudarte a fortalecer la conexión entre áreas, centralizar información crítica y mejorar la toma de decisiones con datos confiables." },
   { min:31, max:36, title:"Empresa <em>Escalable</em>",
-    desc:"Tu empresa opera con un nivel avanzado de madurez digital: procesos estructurados, informaciÃ³n mÃ¡s visible y capacidad para operar con tecnologÃ­a. La oportunidad estÃ¡ en optimizar, escalar e incorporar soluciones mÃ¡s inteligentes. AXSIS puede ayudarte a implementar analÃ­tica avanzada, automatizaciÃ³n estratÃ©gica e inteligencia artificial." },
+    desc:"Tu empresa opera con un nivel avanzado de madurez digital: procesos estructurados, información más visible y capacidad para operar con tecnología. La oportunidad está en optimizar, escalar e incorporar soluciones más inteligentes. AXSIS puede ayudarte a implementar analítica avanzada, automatización estratégica e inteligencia artificial." },
   { min:37, max:40, title:"Empresa <em>Data & AI Driven</em>",
-    desc:"Tu empresa muestra un nivel alto de madurez digital. Los datos tienen un papel relevante en la toma de decisiones y existe una base sÃ³lida para soluciones avanzadas. El siguiente paso es acelerar la innovaciÃ³n con IA, analÃ­tica predictiva y automatizaciÃ³n inteligente. AXSIS puede acompaÃ±arte en ese camino de alto impacto." }
+    desc:"Tu empresa muestra un nivel alto de madurez digital. Los datos tienen un papel relevante en la toma de decisiones y existe una base sólida para soluciones avanzadas. El siguiente paso es acelerar la innovación con IA, analítica predictiva y automatización inteligente. AXSIS puede acompañarte en ese camino de alto impacto." }
 ];
 let questions = questionsES;
 let outcomes  = outcomesES;
@@ -1328,7 +1328,7 @@ function contactAxsis(){ window.open('https://app.shutpoint.com/es-MX/agenda/Ven
 
 <div id="app">
   <div id="lang-switcher">
-    <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')" title="EspaÃ±ol">&#127474;&#127485;</button>
+    <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')" title="Español">&#127474;&#127485;</button>
     <button class="lang-btn" id="btn-lang-en" onclick="setLang('en')" title="English">&#127482;&#127480;</button>
   </div>
 
@@ -1356,8 +1356,8 @@ function contactAxsis(){ window.open('https://app.shutpoint.com/es-MX/agenda/Ven
   <div class="screen" id="s-contact">
     <div class="contact-inner">
       <p class="eyebrow" id="contact-eyebrow">Antes de comenzar</p>
-      <h2 class="contact-heading" id="contact-h2">CuÃ©ntanos sobre <em>ti</em> y tu empresa</h2>
-      <p class="contact-sub" id="contact-sub">En menos de 5 minutos sabrÃ¡s en quÃ© etapa de madurez digital se encuentra tu empresa.</p>
+      <h2 class="contact-heading" id="contact-h2">Cuéntanos sobre <em>ti</em> y tu empresa</h2>
+      <p class="contact-sub" id="contact-sub">En menos de 5 minutos sabrás en qué etapa de madurez digital se encuentra tu empresa.</p>
       <div class="form-group">
         <label class="form-label" id="label-empresa" for="f-empresa">Empresa o negocio</label>
         <input class="form-input" id="f-empresa" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
@@ -1367,11 +1367,11 @@ function contactAxsis(){ window.open('https://app.shutpoint.com/es-MX/agenda/Ven
         <input class="form-input" id="f-nombre" type="text" placeholder="Nombre completo" autocomplete="name">
       </div>
       <div class="form-group">
-        <label class="form-label" id="label-correo" for="f-correo">Correo electrÃ³nico</label>
+        <label class="form-label" id="label-correo" for="f-correo">Correo electrónico</label>
         <input class="form-input" id="f-correo" type="email" placeholder="correo@empresa.com" autocomplete="email">
       </div>
       <div class="form-group">
-        <label class="form-label" id="label-telefono" for="f-telefono">TelÃ©fono</label>
+        <label class="form-label" id="label-telefono" for="f-telefono">Teléfono</label>
         <input class="form-input" id="f-telefono" type="tel" placeholder="81 1234 5678" autocomplete="tel">
       </div>
       <p class="form-error" id="form-err"></p>
