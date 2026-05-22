@@ -1065,8 +1065,8 @@ function setLang(l) {
   lang = l;
   questions = (l === 'es') ? questionsES : questionsEN;
   outcomes  = (l === 'es') ? outcomesES  : outcomesEN;
-  document.getElementById('btn-lang-es').classList.toggle('active', l === 'es');
-  document.getElementById('btn-lang-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-lang-es').className = 'lang-btn' + (l === 'es' ? ' active' : '');
+  document.getElementById('btn-lang-en').className = 'lang-btn' + (l === 'en' ? ' active' : '');
   const t = texts[l];
   document.getElementById('intro-badge-text').textContent  = t.badge;
   document.getElementById('intro-eyebrow').textContent     = t.introEyebrow;
@@ -1607,36 +1607,30 @@ function contactAxsis(){ window.open('https://app.shutpoint.com/es-MX/agenda/Ven
 
 /* â•â• LANGUAGE SWITCHER â•â• */
 #lang-switcher {
-  position: fixed; top: .9rem; right: 1.2rem; z-index: 300;
-  display: flex; gap: .45rem; align-items: center;
+  position: fixed; top: .85rem; right: 1.1rem; z-index: 300;
+  display: flex; gap: 0;
+  background: rgba(0,0,0,.14);
+  border-radius: 3rem;
+  padding: 3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.14);
+  backdrop-filter: blur(8px);
 }
 .lang-btn {
-  background: none; border: 2.5px solid transparent;
-  border-radius: 50%; padding: 0;
-  width: 2.4rem; height: 2.4rem; font-size: 1.35rem; line-height: 1;
-  cursor: pointer;
-  opacity: .28;
-  transform: scale(.8);
-  transition: opacity .2s ease, transform .22s ease, border-color .2s ease, box-shadow .2s ease;
-  display: flex; align-items: center; justify-content: center;
-  filter: grayscale(25%);
+  background: transparent; border: none; border-radius: 2.5rem;
+  width: 2.6rem; height: 2.6rem; font-size: 1.4rem; line-height: 1;
+  cursor: pointer; opacity: .38;
+  transition: opacity .18s ease, background .18s ease, box-shadow .18s ease;
+  display: flex; align-items: center; justify-content: center; padding: 0;
 }
 .lang-btn.active {
   opacity: 1;
-  transform: scale(1);
-  filter: none;
-  border-color: var(--blue);
-  box-shadow: 0 2px 10px rgba(0,159,227,.35);
+  background: #fff;
+  box-shadow: 0 1px 7px rgba(0,0,0,.22);
 }
-.lang-btn:hover:not(.active) { opacity: .6; transform: scale(.9); }
+.lang-btn:hover:not(.active) { opacity: .68; }
 @media (max-width: 640px) {
-  #lang-switcher { top: .6rem; right: .75rem; gap: .35rem; }
-  .lang-btn { width: 2.1rem; height: 2.1rem; font-size: 1.2rem; }
-}
-}@media (max-width: 640px) {
-  #lang-switcher { top: .6rem; right: .8rem; }
-  .lang-btn { width: 1.85rem; height: 1.85rem; font-size: .95rem; }
-}
-</style>
+  #lang-switcher { top: .6rem; right: .75rem; }
+  .lang-btn { width: 2.35rem; height: 2.35rem; font-size: 1.25rem; }
+}</style>
 </body>
 </html>
