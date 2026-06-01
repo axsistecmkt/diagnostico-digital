@@ -1234,6 +1234,7 @@ function submitContact(){
   }
   errEl.classList.remove('show');
   contact = { empresa, nombre, correo, telefono };
+  sendToSheets(null, null);
   cur=0; answers=[];
   document.getElementById('progress-wrap').classList.add('show');
   renderQ(); showScreen('s-question');
@@ -1246,8 +1247,8 @@ function sendToSheets(score, resultado){
       nombre:     contact.nombre,
       correo:     contact.correo,
       telefono:   contact.telefono,
-      resultado:  resultado,
-      puntuacion: String(score)
+      resultado:  resultado !== null ? resultado : 'En progreso',
+      puntuacion: score !== null ? String(score) : '-'
     });
     new Image().src = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec' + '?' + p.toString();
   } catch(e){}
@@ -1556,6 +1557,7 @@ function submitContact(){
   }
   errEl.classList.remove('show');
   contact = { empresa, nombre, correo, telefono };
+  sendToSheets(null, null);
   cur=0; answers=[];
   document.getElementById('progress-wrap').classList.add('show');
   renderQ(); showScreen('s-question');
