@@ -1250,7 +1250,7 @@ function sendToSheets(score, resultado){
       resultado:  resultado !== null ? resultado : 'En progreso',
       puntuacion: score !== null ? String(score) : '-'
     });
-    new Image().src = 'https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec' + '?' + p.toString();
+    fetch('https://script.google.com/macros/s/AKfycbwRv6XFnm7v9mHAK_iFw5fcM_uAOR107gDvKMrRFxJUrGgkTNXEQGLF3FoZOoq4shA2AQ/exec?' + p.toString(), {mode:'no-cors',keepalive:true}).catch(function(){});
   } catch(e){}
 }
 function restartDiagnosis(){
